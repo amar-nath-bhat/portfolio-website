@@ -2,4 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+.background{
+  background-color: #0B0C10;
+}
+
+.card{
+  background-color: #1F2833;
+}
+
+.heading{
+  color: #66FCF1;
+  font-size: 1.5rem;
+}
+
+.text{
+  color: #C5C6C7;
+  font-size: 1rem;
+}
+
+.dark-text{
+  color: #45A29E;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.dark-text:hover{
+  color: #66FCF1;
+}
+
+.screen{
+  padding: 25px;
+}
 

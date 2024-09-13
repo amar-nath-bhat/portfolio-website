@@ -10,7 +10,7 @@ export const metadata = {
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
-      <body>
+      <body className="background">
         <Header />
         <main>{children}</main> {/* This will wrap around page content */}
         <Footer />
