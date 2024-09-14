@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
-    <header className="screen">
+    <header className="screen header shadow-sm shadow-cyan-800">
       <nav>
         <ul className="flex justify-around  w-full">
           <li className="w-full">

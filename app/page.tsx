@@ -4,7 +4,7 @@ import Skills from "../components/Skills";
 
 const HomePage: React.FC = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <section id="about">
         <AboutMe />
       </section>

@@ -12,7 +12,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html lang="en">
       <body className="background">
         <Header />
-        <main>{children}</main> {/* This will wrap around page content */}
+        <main className="min-h-[70vh]">{children}</main>
         <Footer />
       </body>
     </html>
