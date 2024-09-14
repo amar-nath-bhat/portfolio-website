@@ -17,25 +17,40 @@
 
 .heading{
   color: #66FCF1;
-  font-size: 1.5rem;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.sub-heading{
+  color: #C5C6C7;
+  font-size: 40px;
+  font-weight: 500;
 }
 
 .text{
   color: #C5C6C7;
-  font-size: 1rem;
 }
 
-.dark-text{
+.navbar-text{
   color: #45A29E;
-  font-weight: bold;
-  font-size: 1rem;
 }
 
-.dark-text:hover{
+.navbar-sub-text{
+  color: #C5C6C7;
+}
+
+.navbar-text:hover{
   color: #66FCF1;
 }
 
+.navbar-sub-text:hover{
+  color: #94979b;
+}
+
 .screen{
-  padding: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
