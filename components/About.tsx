@@ -1,6 +1,6 @@
 const About: React.FC = () => {
   return (
-    <section className="px-48 pt-28 rounded-lg shadow-lg">
+    <section id="about" className="px-48 pt-28 rounded-lg shadow-lg">
       <h2 className="heading text-3xl font-bold mb-6">About Me</h2>
       <p className="text-[1.5rem] leading-7 mb-4 text">
         Hey there! I'm <strong>Amarnath Bhat</strong>, a passionate developer

@@ -4,9 +4,11 @@ const Footer = () => {
   return (
     <>
       <hr />
-      <div className="footer-container">
-        <p>© {new Date().getFullYear()} Amarnath's Portfolio</p>
-        <div className="social_icons">
+      <div className="header text px-48 py-10 text-xl">
+        <p className="glow-text font-bold hover:">
+          © {new Date().getFullYear()} Amarnath's Portfolio
+        </p>
+        <div className="text">
           <a
             href="https://twitter.com/olawanle_joel"
             aria-label="Twitter"

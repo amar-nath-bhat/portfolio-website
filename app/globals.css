@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.glow-text {
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.glow-text:hover {
+  text-shadow: 0 0 8px #0B0C10, 0 0 16px #66FCF1, 0 0 32px #66FCF1;
+  color: #C5C6C7;
+}
+
+
 .background{
   background-color: #0B0C10;
 }

@@ -6,33 +6,43 @@ const Header: React.FC = () => {
       <nav>
         <ul className="flex justify-between items-center w-full">
           <li className="w-full">
-            <Link href="/">
-              <span className="navbar-text font-extrabold text-3xl">
+            <Link href="/" className="glow-text">
+              <span className="text-[#66FCF1] font-extrabold text-3xl">
                 Amarnath
               </span>{" "}
-              <span className="navbar-sub-text font-extrabold text-3xl">
-                Bhat
-              </span>
+              <span className="text-white font-extrabold text-3xl">Bhat</span>
             </Link>
           </li>
-          <ul className="flex justify-end w-full gap-10">
+          <ul className="flex justify-end w-full gap-10 ">
             <li>
-              <Link href="/" className="navbar-text font-bold text-xl">
+              <Link
+                href="/"
+                className="navbar-text glow-text font-bold text-xl"
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link className="navbar-text font-bold text-xl" href="/about">
+              <Link
+                className="navbar-text glow-text font-bold text-xl"
+                href="#about"
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link className="navbar-text font-bold text-xl" href="/projects">
+              <Link
+                className="navbar-text glow-text font-bold text-xl"
+                href="/projects"
+              >
                 Projects
               </Link>
             </li>
             <li>
-              <Link className="navbar-text font-bold text-xl" href="/contact">
+              <Link
+                className="navbar-text glow-text font-bold text-xl"
+                href="/contact"
+              >
                 Contact
               </Link>
             </li>

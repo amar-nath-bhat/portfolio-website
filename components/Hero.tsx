@@ -40,8 +40,8 @@ const Hero: React.FC = () => {
         <h2 className={`${poppins.className} font-normal sub-heading`}>
           <span ref={typedRef}></span>{" "}
         </h2>
-        <div className="flex gap-10 mt-6 text-xl font-bold">
-          <button className="rounded-full shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[#45A29E] object-cover bg-[#66FCF1] px-5 py-3">
+        <div className="flex gap-10 mt-16 text-xl font-bold">
+          <button className="rounded-full shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[#45A29E] object-cover bg-[#66FCF1] px-5 py-3 ">
             Say Hi 👋
           </button>
           <button className="rounded-full shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[#45A29E] object-cover bg-[#66FCF1] px-5 py-3">
