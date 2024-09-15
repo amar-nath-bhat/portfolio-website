@@ -2,15 +2,15 @@ import Link from "next/link";
 
 const Header: React.FC = () => {
   return (
-    <header className="screen header shadow-sm shadow-cyan-800">
+    <header className="px-48 py-8 header shadow-sm shadow-cyan-800">
       <nav>
         <ul className="flex justify-between items-center w-full">
           <li className="w-full">
             <Link href="/">
-              <span className="navbar-text font-extrabold text-2xl">
+              <span className="navbar-text font-extrabold text-3xl">
                 Amarnath
               </span>{" "}
-              <span className="navbar-sub-text font-extrabold text-2xl">
+              <span className="navbar-sub-text font-extrabold text-3xl">
                 Bhat
               </span>
             </Link>
