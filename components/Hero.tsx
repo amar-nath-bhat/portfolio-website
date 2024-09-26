@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
-import { Poppins } from "next/font/google";
+import { Poppins } from "@next/font/google";
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
+import Spline from "@splinetool/react-spline";
+import { Button } from "@/components/ui/button";
 
 const poppins = Poppins({
   weight: ["400", "600"],
@@ -32,8 +34,8 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex items-center justify-start pt-36 px-48">
-      <div className="text-start flex flex-col">
+    <section className="relative flex items-center justify-start pt-28 px-48 overflow-hidden">
+      <div className="text-start flex flex-col w-full z-10">
         <span className="w-full heading">
           Hello Visitor! I am Amarnath Bhat.{" "}
         </span>
@@ -41,13 +43,16 @@ const Hero: React.FC = () => {
           <span ref={typedRef}></span>{" "}
         </h2>
         <div className="flex gap-10 mt-16 text-xl font-bold">
-          <button className="rounded-full shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[#45A29E] object-cover bg-[#66FCF1] px-5 py-3 ">
+          <Button className="hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[#45A29E] object-cover bg-[#66FCF1] px-7 py-7 text-black hover:text-white rounded-full text-xl ">
             Say Hi 👋
-          </button>
-          <button className="rounded-full shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[#45A29E] object-cover bg-[#66FCF1] px-5 py-3">
+          </Button>
+          <Button className="hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-[#45A29E] object-cover bg-[#66FCF1] px-5 py-7 text-black hover:text-white rounded-full text-xl">
             Learn More
-          </button>
+          </Button>
         </div>
+      </div>
+      <div className="w-full h-[70vh]">
+        <Spline scene="https://prod.spline.design/JQQz1KZ6w0HUk7yX/scene.splinecode" />
       </div>
     </section>
   );
