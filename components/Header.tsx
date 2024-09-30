@@ -33,7 +33,7 @@ const Header: React.FC = () => {
             <li>
               <Link
                 className="navbar-text glow-text font-bold text-xl"
-                href="/projects"
+                href="#projects"
               >
                 Projects
               </Link>
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             <li>
               <Link
                 className="navbar-text glow-text font-bold text-xl"
-                href="/contact"
+                href="#contact"
               >
                 Contact
               </Link>

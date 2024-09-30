@@ -1,17 +1,25 @@
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import ProjectCard from "./ProjectCard";
+
+
+
 const Projects: React.FC = () => {
   return (
-    <section>
+    <section id="projects" className="text">
       <h2>Projects</h2>
-      <ul>
-        <li>
-          <h3>Project 1</h3>
-          <p>Description of Project 1</p>
-        </li>
-        <li>
-          <h3>Project 2</h3>
-          <p>Description of Project 2</p>
-        </li>
-      </ul>
+      <Carousel>
+        <CarouselContent>
+          <CarouselItem className="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
+          <CarouselItem className="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
+          <CarouselItem className="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
+        </CarouselContent>
+      </Carousel>
     </section>
   );
 };

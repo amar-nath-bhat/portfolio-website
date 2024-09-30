@@ -1,6 +1,6 @@
 const Contact: React.FC = () => {
   return (
-    <section>
+    <section id="contact">
       <h2>Contact Me</h2>
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <label htmlFor="name">Name:</label>

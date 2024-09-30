@@ -34,11 +34,9 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative flex items-center justify-start pt-28 px-48 overflow-hidden">
-      <div className="text-start flex flex-col w-full z-10">
-        <span className="w-full heading">
-          Hello Visitor! I am Amarnath Bhat.{" "}
-        </span>
+    <section className="flex items-center justify-center px-48 overflow-hidden min-h-[85vh] top-0">
+      <div className="text-start flex flex-col w-full top-0">
+        <span className="w-full heading">Hello Visitor! I am Amarnath </span>
         <h2 className={`${poppins.className} font-normal sub-heading`}>
           <span ref={typedRef}></span>{" "}
         </h2>
@@ -51,8 +49,8 @@ const Hero: React.FC = () => {
           </Button>
         </div>
       </div>
-      <div className="w-full h-[70vh]">
-        <Spline scene="https://prod.spline.design/JQQz1KZ6w0HUk7yX/scene.splinecode" />
+      <div className="w-full h-[70vh] top-0">
+        <Spline scene={process.env.NEXT_PUBLIC_GLASS_BALLS || ""} />
       </div>
     </section>
   );
