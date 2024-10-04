@@ -1,35 +1,39 @@
-const ProjectCard: React.FC = () => {
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
+interface Project {
+  title: string;
+  description: string;
+  imageUrl: string;
+  liveUrl: string;
+  sourceCodeUrl: string;
+}
+
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <section className="max-w-sm rounded-lg shadow-lg overflow-hidden bg-white hover:scale-105 transition-transform duration-300">
+    <section className="max-w-sm rounded-lg shadow-lg shadow-gray-800 overflow-hidden bg-[#0B0C10] hover:scale-105 transition-transform duration-300 ">
       {/* Project Image */}
       <img
         className="w-full h-48 object-cover"
-        src="https://via.placeholder.com/400"
+        src={project.imageUrl}
         alt="Project Thumbnail"
       />
 
       {/* Project Content */}
       <div className="p-6">
-        <h3 className="font-semibold text-2xl mb-2">Project Title</h3>
-        <p className="text-gray-700 mb-4">
-          This is a brief description of the project that highlights its main
-          features and purpose. It provides an overview to attract interest.
-        </p>
+        <h3 className="font-semibold text-2xl mb-2 text-[#66FCF1]">
+          {project.title}
+        </h3>
+        <p className="text-gray-300 mb-4">{project.description}</p>
 
         {/* Buttons */}
         <div className="flex gap-4">
-          <a
-            href="#"
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-          >
-            View Project
-          </a>
-          <a
-            href="#"
-            className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
-          >
-            Source Code
-          </a>
+          <Button className="px-4 py-2 bg-[#66FCF1] text-black rounded-lg hover:bg-[#45A29E] transition-colors">
+            <Link href={project.liveUrl}>View Project</Link>
+          </Button>
+          <Button className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">
+            <Link href={project.sourceCodeUrl}>Source Code</Link>
+          </Button>
         </div>
       </div>
     </section>

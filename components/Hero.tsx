@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Poppins } from "@next/font/google";
+import { Poppins } from "next/font/google";
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
 import Spline from "@splinetool/react-spline";

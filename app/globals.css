@@ -25,6 +25,11 @@ html {
   
 }
 
+.carousel {
+  scroll-behavior: smooth;
+}
+
+
 .card{
   background-color: #1F2833;
 }

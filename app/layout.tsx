@@ -13,7 +13,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <body className="background">
         <Header />
         <main className="min-h-[70vh]">{children}</main>
-        <Footer />
       </body>
     </html>
   );

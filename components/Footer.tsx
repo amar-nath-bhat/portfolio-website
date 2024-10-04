@@ -1,41 +1,46 @@
-// components/Footer.jsx
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <>
-      <hr />
-      <div className="header text px-48 py-10 text-xl">
-        <p className="glow-text font-bold hover:">
+    <footer className="bg-[#0B0C10] text-[#66FCF1] ">
+      <hr className="border-gray-600" />
+      <div className="flex flex-col md:flex-row justify-between items-center text-xl py-10 px-48">
+        {/* Footer Text */}
+        <p className="font-bold text-center mb-4 md:mb-0">
           © {new Date().getFullYear()} Amarnath's Portfolio
         </p>
-        <div className="text">
-          <a
-            href="https://twitter.com/olawanle_joel"
+
+        {/* Social Links */}
+        <div className="flex space-x-6">
+          <Link
+            href="https://twitter.com/your_profile"
             aria-label="Twitter"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa-brands fa-twitter"></i>
-          </a>
-          <a
-            href="https://github.com/olawanlejoel"
+            <img src="/images/twitter.png" alt="" className="w-5 h-5" />
+          </Link>
+
+          <Link
+            href="https://github.com/your_profile"
             aria-label="GitHub"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa-brands fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/olawanlejoel/"
+            <img src="/images/github.png" alt="" className="w-5 h-5" />
+          </Link>
+
+          <Link
+            href="https://www.linkedin.com/in/your_profile/"
             aria-label="LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa-brands fa-linkedin"></i>
-          </a>
+            <img src="/images/linkedin.png" alt="" className="w-5 h-5" />
+          </Link>
         </div>
       </div>
-    </>
+    </footer>
   );
 };
 
