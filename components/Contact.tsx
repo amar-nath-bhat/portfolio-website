@@ -3,6 +3,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  weight: ["400", "600"],
+  subsets: ["latin"],
+});
 
 // Social links configuration
 const socialLinks = [
@@ -27,7 +33,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="text-[#66FCF1] flex flex-col items-center justify-center px-10 md:px-48 overflow-hidden min-h-[85vh] gap-5 "
+      className={`text-[#66FCF1] flex flex-col items-center justify-center px-10 md:px-48 overflow-hidden min-h-[85vh] gap-5 ${poppins.className}`}
     >
       <div className="bg-[#030304] p-10 w-full max-w-lg rounded-3xl shadow-lg shadow-gray-800 text-xl hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-[#66FCF1]/50">
         <h2 className="text-4xl font-bold text-center mb-8">Contact Me</h2>

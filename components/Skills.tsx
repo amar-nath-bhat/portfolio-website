@@ -4,8 +4,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useRef } from "react";
 
@@ -40,8 +38,8 @@ const Skills: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-[#0B0C10] text-[#66FCF1] px-6 md:px-12 lg:px-48 overflow-x-hidden">
-      <div className="relative flex items-center w-full">
+    <section className="bg-[#0B0C10] text-[#66FCF1] px-6 md:px-12 lg:px-48 overflow-hidden">
+      <div className="relative flex items-center w-full overflow-hidden">
         {/* Carousel Container */}
         <Carousel className="w-full max-w-6xl mx-auto">
           <CarouselContent
@@ -51,7 +49,7 @@ const Skills: React.FC = () => {
             {skills.map((skill) => (
               <CarouselItem
                 key={skill.title}
-                className="flex-none w-28 md:w-36 lg:w-48 max-w-full"
+                className="flex-none w-24 sm:w-28 md:w-36 lg:w-48"
               >
                 <div className="flex flex-col items-center p-4 hover:scale-105 transition-transform">
                   <Image
@@ -68,9 +66,6 @@ const Skills: React.FC = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* Carousel Controls */}
-          <CarouselPrevious className="bg-black text-white" />
-          <CarouselNext className="bg-black text-white" />
         </Carousel>
       </div>
     </section>
