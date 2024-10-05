@@ -34,22 +34,27 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="text flex flex-col items-start justify-center px-48 overflow-hidden min-h-[100vh]"
+      className="flex flex-col items-start justify-center py-10 px-6 md:px-12 lg:px-24 xl:px-48 overflow-hidden sm:min-h-[100vh]"
     >
-      <p className="heading">Projects</p>
+      <p className="heading text-4xl font-bold md:text-3xl lg:text-4xl mb-8">
+        Projects
+      </p>
       <Carousel className="w-full">
-        <CarouselContent className="flex gap-8 px-4">
+        <CarouselContent className="flex gap-4 md:gap-6 lg:gap-8 px-4 w-full transition-transform duration-300 ease-in-out">
           {projects.map((project, index) => (
             <CarouselItem
               key={index}
-              className="w-[33.33%] max-w-[400px] flex-grow p-10"
+              className="w-full sm:w-[80%] md:w-[50%] max-w-xs md:max-w-md flex-grow p-4 md:p-6 lg:p-10"
             >
               <ProjectCard project={project} />
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="bg-black text-white" />
-        <CarouselNext className="bg-black text-white" />
+        {/* Hide carousel controls on small screens */}
+        <div className="hidden md:flex justify-between w-full">
+          <CarouselPrevious className="bg-black text-white" />
+          <CarouselNext className="bg-black text-white" />
+        </div>
       </Carousel>
     </section>
   );

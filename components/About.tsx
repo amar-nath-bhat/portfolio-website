@@ -11,7 +11,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="px-6 md:px-12 lg:px-48 min-h-[100vh] flex flex-col items-center justify-center bg-[#0B0C10] mt-10"
+      className="px-6 md:px-12 lg:px-48 sm:min-h-[100vh] flex flex-col items-center justify-center bg-[#0B0C10] mt-10"
     >
       <div className="flex flex-col md:flex-row items-center justify-center w-full">
         {/* About Me Text Section */}

@@ -40,10 +40,10 @@ const Skills: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-[#0B0C10] text-[#66FCF1] px-6 md:px-12 lg:px-48 overflow-hidden">
+    <section className="bg-[#0B0C10] text-[#66FCF1] px-6 md:px-12 lg:px-48 overflow-x-hidden">
       <div className="relative flex items-center w-full">
         {/* Carousel Container */}
-        <Carousel className="w-full max-w-6xl mx-auto carousel">
+        <Carousel className="w-full max-w-6xl mx-auto">
           <CarouselContent
             ref={carouselRef}
             className="flex gap-4 md:gap-6 lg:gap-8 px-4 transition-transform duration-300 ease-in-out"
@@ -51,7 +51,7 @@ const Skills: React.FC = () => {
             {skills.map((skill) => (
               <CarouselItem
                 key={skill.title}
-                className="flex-none w-28 md:w-36 lg:w-48"
+                className="flex-none w-28 md:w-36 lg:w-48 max-w-full"
               >
                 <div className="flex flex-col items-center p-4 hover:scale-105 transition-transform">
                   <Image
