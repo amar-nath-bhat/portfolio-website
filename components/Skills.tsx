@@ -7,8 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export const skills = [
   { title: "C", img: "C.png" },
@@ -40,33 +39,21 @@ export const skills = [
 const Skills: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (carouselRef.current) {
-  //       const items = carouselRef.current.children;
-  //       // Move the first item to the end of the list
-  //       if (items.length > 0) {
-  //         const firstItem = items[0];
-  //         carouselRef.current.appendChild(firstItem);
-  //       }
-  //     }
-  //   }, 2000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
   return (
-    <section className="bg-[#0B0C10] text-[#66FCF1] justify-center px-48 overflow-hidden">
+    <section className="bg-[#0B0C10] text-[#66FCF1] px-6 md:px-12 lg:px-48 overflow-hidden">
       <div className="relative flex items-center w-full">
         {/* Carousel Container */}
         <Carousel className="w-full max-w-6xl mx-auto carousel">
           <CarouselContent
             ref={carouselRef}
-            className="flex gap-8 px-4 transition-transform duration-300 ease-in-out"
+            className="flex gap-4 md:gap-6 lg:gap-8 px-4 transition-transform duration-300 ease-in-out"
           >
             {skills.map((skill) => (
-              <CarouselItem key={skill.title} className="flex-none w-48">
-                <div className="flex flex-col items-center rounded-full p-4 hover:scale-105 transition-transform">
+              <CarouselItem
+                key={skill.title}
+                className="flex-none w-28 md:w-36 lg:w-48"
+              >
+                <div className="flex flex-col items-center p-4 hover:scale-105 transition-transform">
                   <Image
                     src={`/images/${skill.img}`}
                     alt={skill.title}
@@ -74,11 +61,14 @@ const Skills: React.FC = () => {
                     height={64}
                     className="mb-4"
                   />
-                  <p className="text-lg font-semibold">{skill.title}</p>
+                  <p className="text-sm md:text-lg font-semibold">
+                    {skill.title}
+                  </p>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
+          {/* Carousel Controls */}
           <CarouselPrevious className="bg-black text-white" />
           <CarouselNext className="bg-black text-white" />
         </Carousel>
