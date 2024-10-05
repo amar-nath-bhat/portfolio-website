@@ -3,6 +3,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import Image from "next/image";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
@@ -107,7 +108,13 @@ const Contact: React.FC = () => {
               rel="noopener noreferrer"
               className=" hover:scale-105 transition-transform duration-300 rounded-full bg-[#66FCF1] p-2"
             >
-              <img src={link.img} alt={link.alt} className="w-8 h-8" />
+              <Image
+                src={link.img} // Make sure link.img is an external URL allowed in next.config.mjs
+                alt={link.alt} // Ensure you have a descriptive alt text
+                width={32} // Set a width
+                height={32} // Set a height
+                className="w-8 h-8" // You can still apply Tailwind classes
+              />
             </Link>
           ))}
         </div>

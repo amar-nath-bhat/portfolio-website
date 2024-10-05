@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
@@ -21,10 +22,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       className={`max-w-sm w-full min-h-[500px] rounded-lg shadow-lg shadow-gray-800 overflow-hidden bg-[#0B0C10] hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-[#66FCF1]/50 mx-auto md:mx-0 ${poppins.className}`}
     >
       {/* Project Image */}
-      <img
+      <Image
         className="w-full h-48 object-cover"
-        src={project.imageUrl}
+        src={project.imageUrl} // External URL
         alt="Project Thumbnail"
+        width={640} // Specify the width
+        height={256} // Specify the height
       />
 
       {/* Project Content */}

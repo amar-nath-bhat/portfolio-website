@@ -27,7 +27,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between items-center text-xl py-10 px-48">
         {/* Footer Text */}
         <p className="font-bold text-center mb-4 md:mb-0">
-          © {currentYear} Amarnath's Portfolio
+          © {currentYear} AmarnathZ&apos;s Portfolio
         </p>
       </div>
     </footer>
