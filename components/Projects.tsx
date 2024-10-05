@@ -18,7 +18,6 @@ const Projects: React.FC = () => {
       try {
         const res = await fetch("/api/projects");
         const data = await res.json();
-        // console.log("Data fetched", data);
         setProjects(data);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -28,7 +27,6 @@ const Projects: React.FC = () => {
     };
 
     fetchProjects();
-    // console.log("Projects fetched", projects);
   }, []);
 
   if (loading) return <div>Loading...</div>;
@@ -36,13 +34,16 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="text flex flex-col items-start justify-center px-48 overflow-hidden min-h-[75vh] top-0 gap-5"
+      className="text flex flex-col items-start justify-center px-48 overflow-hidden min-h-[100vh]"
     >
       <p className="heading">Projects</p>
-      <Carousel>
-        <CarouselContent>
+      <Carousel className="w-full">
+        <CarouselContent className="flex gap-8 px-4">
           {projects.map((project, index) => (
-            <CarouselItem key={index} className="p-10">
+            <CarouselItem
+              key={index}
+              className="w-[33.33%] max-w-[400px] flex-grow p-10"
+            >
               <ProjectCard project={project} />
             </CarouselItem>
           ))}

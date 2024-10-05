@@ -27,15 +27,15 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="text-[#66FCF1] flex flex-col items-center justify-center px-10 md:px-48 overflow-hidden min-h-[85vh] gap-5"
+      className="text-[#66FCF1] flex flex-col items-center justify-center px-10 md:px-48 overflow-hidden min-h-[85vh] gap-5 "
     >
-      <div className="bg-[#030304] p-10 w-full max-w-lg rounded-3xl shadow-lg shadow-gray-800 text-xl">
+      <div className="bg-[#030304] p-10 w-full max-w-lg rounded-3xl shadow-lg shadow-gray-800 text-xl hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-[#66FCF1]/50">
         <h2 className="text-4xl font-bold text-center mb-8">Contact Me</h2>
 
         <form
           action={`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`}
           method="POST"
-          className="space-y-6"
+          className="space-y-6 "
         >
           {/* Name */}
           <div className="space-y-2">
@@ -99,9 +99,9 @@ const Contact: React.FC = () => {
               aria-label={link.alt}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:scale-105 transition-transform rounded-full bg-[#66FCF1] p-2"
+              className=" hover:scale-105 transition-transform duration-300 rounded-full bg-[#66FCF1] p-2"
             >
-              <img src={link.img} alt={link.alt} className="w-14 h-14" />
+              <img src={link.img} alt={link.alt} className="w-8 h-8" />
             </Link>
           ))}
         </div>
