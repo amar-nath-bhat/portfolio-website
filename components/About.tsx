@@ -5,11 +5,11 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="px-48 min-h-[100vh] flex bg-[#0B0C10] flex-col items-center justify-center text mt-10"
+      className="px-48 min-h-[100vh] flex bg-[#0B0C10] flex-col items-center justify-between text mt-10"
     >
       <div className="flex items-center justify-center">
         <div className="w-1/2">
-          <h2 className="heading text-3xl font-bold mb-6">About Me</h2>
+          <h2 className="heading text-4xl font-bold mb-6">About Me</h2>
           <p className="text-[1.5rem] leading-7 mb-4">
             Hey there! I'm <strong>Amarnath Bhat</strong>, a passionate
             developer with a love for turning ideas into reality through code
@@ -30,7 +30,7 @@ const About: React.FC = () => {
           </p>
         </div>
 
-        <div className="w-1/2 h-[70vh]">
+        <div className="w-1/2 h-[70vh] hidden lg:block">
           <Spline scene={process.env.NEXT_PUBLIC_THREED_ICON || ""} />
         </div>
       </div>

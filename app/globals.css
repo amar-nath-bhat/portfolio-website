@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html {
   scroll-behavior: smooth;
 }
@@ -36,14 +37,12 @@ html {
 
 .heading{
   color: #66FCF1;
-  font-size: 50px;
-  font-weight: 700;
+
 }
 
 .sub-heading{
   color: #C5C6C7;
-  font-size: 40px;
-  font-weight: 500;
+
 }
 
 .text{

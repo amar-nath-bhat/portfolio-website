@@ -56,7 +56,7 @@ const Skills: React.FC = () => {
   // }, []);
 
   return (
-    <section className="py-12 pb-20 bg-[#0B0C10] text-[#66FCF1] justify-center px-48 overflow-hidden">
+    <section className="bg-[#0B0C10] text-[#66FCF1] justify-center px-48 overflow-hidden">
       <div className="relative flex items-center w-full">
         {/* Carousel Container */}
         <Carousel className="w-full max-w-6xl mx-auto carousel">
