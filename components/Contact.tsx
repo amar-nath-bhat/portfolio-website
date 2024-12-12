@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className={`text-[#66FCF1] flex flex-col items-center justify-center px-10 md:px-48 overflow-hidden min-h-[85vh] gap-5 ${poppins.className}`}
+      className={`text-[#66FCF1] flex flex-col items-center justify-center px-10 md:px-48 overflow-hidden mb-10 min-h-[85vh] gap-5 ${poppins.className}`}
     >
       <div className="bg-[#030304] p-10 w-full max-w-lg rounded-3xl shadow-lg shadow-gray-800 text-xl hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-[#66FCF1]/50">
         <h2 className="text-4xl font-bold text-center mb-8">Contact Me</h2>

@@ -1,16 +1,11 @@
 import { NextResponse } from 'next/server';
-import Project from '@/models/Project'; // Import your Project model
-import { dbConnect } from '@/lib/dbConnect'; // Import the MongoDB connection
+import Project from '@/models/Project';
+import { dbConnect } from '@/lib/dbConnect'; 
 
 export async function GET() {
   try {
-    // Connect to the database
     await dbConnect();
-
-    // Fetch all projects from the database
     const projects = await Project.find({});
-
-    // Return the projects in the response
     return NextResponse.json(projects, { status: 200 });
   } catch (error) {
     console.error('Error fetching projects:', error);
@@ -22,7 +17,6 @@ export async function POST(req: Request) {
   try {
     await dbConnect();
     const data = await req.json();
-
     const newProject = new Project({
       title: data.title,
       description: data.description,
@@ -30,7 +24,6 @@ export async function POST(req: Request) {
       liveUrl: data.liveUrl,
       sourceCodeUrl: data.sourceCodeUrl,
     });
-
     await newProject.save();
     return NextResponse.json(newProject, { status: 201 });
   } catch (error) {
