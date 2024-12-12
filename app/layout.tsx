@@ -1,7 +1,7 @@
 import "./globals.css"; // Import your global CSS or styles
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
+import { Analytics } from "@vercel/analytics/react";
 export const metadata = {
   title: "Amarnath | Portfolio",
   description: "A portfolio of Amarnath",
@@ -14,6 +14,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <Header />
         <main className="min-h-[70vh] overflow-hidden">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
