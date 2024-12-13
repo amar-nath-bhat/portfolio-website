@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="flex flex-col items-start justify-center py-10 px-6 md:px-12 lg:px-24 xl:px-48 overflow-hidden sm:min-h-[100vh]"
+      className="flex flex-col items-start justify-center py-10 px-6 md:px-12 lg:px-24 xl:px-36 overflow-hidden sm:min-h-[100vh]"
     >
       <p className="heading text-4xl font-bold md:text-3xl lg:text-4xl mb-8">
         Projects

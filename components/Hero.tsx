@@ -33,9 +33,9 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex flex-col-reverse lg:flex-row items-center justify-center px-6 md:px-12 lg:px-24 xl:px-48 overflow-hidden sm:min-h-[85vh]">
+    <section className="flex flex-col-reverse lg:flex-row items-center justify-center px-6 md:px-12 lg:px-24 xl:px-36 overflow-hidden sm:min-h-[85vh]">
       {/* Text Section */}
-      <div className="text-start flex flex-col w-full lg:w-1/2 top-0 mt-10 lg:mt-0">
+      <div className="text-start flex flex-col w-auto top-0 mt-10 lg:mt-0">
         <span className="w-full heading text-3xl md:text-4xl lg:text-5xl font-bold">
           Hello Visitor! I am Amarnath
         </span>
@@ -53,9 +53,8 @@ const Hero: React.FC = () => {
           </Button>
         </div>
       </div>
-
       {/* Spline Section */}
-      <div className="w-full hidden lg:h-[70vh] lg:w-1/2 lg:block">
+      <div className="hidden lg:h-[70vh]  w-full lg:block">
         <Spline scene={process.env.NEXT_PUBLIC_GLASS_BALLS || ""} />
       </div>
     </section>

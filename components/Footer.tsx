@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#0B0C10] text-[#66FCF1]">
       <hr className="border-gray-600" />
-      <div className="flex flex-col md:flex-row justify-between items-center text-xl py-10 px-48">
+      <div className="flex flex-col md:flex-row justify-between items-center text-xl py-10 px-36">
         {/* Footer Text */}
         <p className="font-bold text-center mb-4 md:mb-0">
           © {currentYear} Amarnath&apos;s Portfolio

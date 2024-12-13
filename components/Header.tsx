@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="px-6 md:px-12 lg:px-24 xl:px-48 py-4 md:py-8 text-[#66FCF1] sticky top-0 z-10 shadow-sm shadow-cyan-800 header">
+    <header className="px-6 md:px-12 lg:px-24 xl:px-36 py-4 md:py-8 text-[#66FCF1] sticky top-0 z-10 shadow-sm shadow-cyan-800 header">
       <nav className="flex justify-between items-center w-full">
         {/* Logo */}
         <Link
