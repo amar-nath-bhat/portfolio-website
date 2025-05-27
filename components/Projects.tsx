@@ -7,9 +7,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ProjectCard from "./ProjectCard";
-import { useState, useEffect } from "react";
+import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useState } from "react";
 
-const Projects: React.FC = () => {
+const Projects = () => {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -29,7 +30,7 @@ const Projects: React.FC = () => {
     fetchProjects();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="p-6">Loading...</div>;
 
   return (
     <section
@@ -39,8 +40,12 @@ const Projects: React.FC = () => {
       <p className="heading text-4xl font-bold md:text-3xl lg:text-4xl mb-8">
         Projects
       </p>
-      <Carousel className="w-full">
-        <CarouselContent className="flex gap-4 md:gap-6 lg:gap-8 px-4 w-full transition-transform duration-300 ease-in-out">
+      <Carousel
+        className="w-full"
+        opts={{ align: "start", loop: true }}
+        plugins={[Autoplay({ delay: 3000 })]}
+      >
+        <CarouselContent className="flex gap-4 md:gap-6 lg:gap-8 px-4 w-full">
           {projects.map((project, index) => (
             <CarouselItem
               key={index}
@@ -50,7 +55,7 @@ const Projects: React.FC = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* Hide carousel controls on small screens */}
+
         <div className="hidden md:flex justify-between w-full">
           <CarouselPrevious className="bg-black text-white" />
           <CarouselNext className="bg-black text-white" />

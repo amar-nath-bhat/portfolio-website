@@ -1,7 +1,9 @@
+import type React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
+import { ExternalLink, Github } from "lucide-react";
 
 const poppins = Poppins({
   weight: ["400", "600"],
@@ -9,61 +11,95 @@ const poppins = Poppins({
 });
 
 interface Project {
+  id?: number;
   title: string;
   description: string;
   imageUrl: string;
   liveUrl: string;
   sourceCodeUrl: string;
+  technologies?: string[];
 }
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <section
-      className={`max-w-sm w-full min-h-[500px] rounded-lg shadow-lg shadow-gray-800 overflow-hidden bg-[#0B0C10] hover:scale-105 transition-transform duration-300 ease-in-out hover:shadow-[#66FCF1]/50 mx-auto md:mx-0 ${poppins.className}`}
+    <div
+      className={`max-w-sm w-full min-h-[550px] rounded-xl shadow-lg shadow-gray-800 overflow-hidden bg-gradient-to-br from-[#0B0C10] to-[#1F2833] hover:scale-105 transition-all duration-500 ease-in-out hover:shadow-xl hover:shadow-[#66FCF1]/30 mx-auto md:mx-0 border border-gray-700 hover:border-[#66FCF1]/50 flex flex-col ${poppins.className}`}
     >
       {/* Project Image */}
-      <Image
-        className="w-full h-48 object-cover"
-        src={project.imageUrl} // External URL
-        alt="Project Thumbnail"
-        width={640} // Specify the width
-        height={256} // Specify the height
-      />
+      <div className="relative overflow-hidden">
+        <Image
+          className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+          src={project.imageUrl || "/placeholder.svg"}
+          alt={`${project.title} thumbnail`}
+          width={640}
+          height={256}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+      </div>
 
       {/* Project Content */}
-      <div className="p-4 md:p-6 flex flex-col justify-between h-full">
+      <div className="flex flex-col justify-between flex-grow p-6">
         <div>
-          <h3 className="font-semibold text-xl md:text-2xl mb-2 text-[#66FCF1]">
+          <h3 className="font-semibold text-xl md:text-2xl mb-3 text-[#66FCF1] hover:text-[#45A29E] transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="text-gray-300 text-sm md:text-base mb-4">
+          <p className="text-gray-300 text-sm md:text-base mb-4 leading-relaxed">
             {project.description}
           </p>
+
+          {/* Technology Tags */}
+          {project.technologies && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.slice(0, 3).map((tech, index) => (
+                <span
+                  key={index}
+                  className="px-2 py-1 bg-[#66FCF1]/10 text-[#66FCF1] text-xs rounded-full border border-[#66FCF1]/30 hover:bg-[#66FCF1]/20 transition-colors duration-300"
+                >
+                  {tech}
+                </span>
+              ))}
+              {project.technologies.length > 3 && (
+                <span className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded-full">
+                  +{project.technologies.length - 3} more
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* Buttons */}
-        <div className="flex gap-4 mt-auto">
-          <Button className="px-3 md:px-4 py-2 bg-[#66FCF1] text-black rounded-lg hover:bg-[#45A29E] transition-colors">
+        {/* Buttons pinned to bottom */}
+        <div className="flex gap-3 mt-auto pt-4">
+          <Button className="flex-1 px-4 py-2 bg-[#66FCF1] text-black rounded-lg hover:bg-[#45A29E] hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#66FCF1]/30 group">
             <Link
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full"
             >
-              View Project
+              <ExternalLink
+                size={16}
+                className="group-hover:rotate-12 transition-transform duration-300"
+              />
+              Live Demo
             </Link>
           </Button>
-          <Button className="px-3 md:px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">
+          <Button className="flex-1 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all duration-300 hover:shadow-lg group">
             <Link
               href={project.sourceCodeUrl}
               target="_blank"
               rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full"
             >
-              Source Code
+              <Github
+                size={16}
+                className="group-hover:rotate-12 transition-transform duration-300"
+              />
+              Code
             </Link>
           </Button>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
