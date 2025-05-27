@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import type React from "react";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
-import skills from "../skills.json";
 const poppins = Poppins({
   weight: ["400", "600"],
   subsets: ["latin"],
@@ -11,7 +10,23 @@ const poppins = Poppins({
 
 const Skills: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [skills, setSkills] = useState<any[]>([]);
   const skillsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const res = await fetch("/api/skills");
+        const data = await res.json();
+        setSkills(data);
+      } catch (error) {
+        console.error("Error fetching skills:", error);
+      } finally {
+        setIsVisible(true);
+      }
+    };
+    fetchSkills();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
