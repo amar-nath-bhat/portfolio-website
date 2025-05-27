@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import type React from "react";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
-import skills from "@/skills.json";
+import skills from "../skills.json";
 const poppins = Poppins({
   weight: ["400", "600"],
   subsets: ["latin"],
