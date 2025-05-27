@@ -1,95 +1,104 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
+import type React from "react";
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { useRef, useState, useEffect } from "react";
+import { Poppins } from "next/font/google";
+import skills from "@/skills.json";
+const poppins = Poppins({
+  weight: ["400", "600"],
+  subsets: ["latin"],
+});
 
 const Skills: React.FC = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [skills, setSkills] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const skillsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await fetch("/api/skills");
-        const data = await res.json();
-        setSkills(data);
-      } catch (error) {
-        console.error("Error fetching skills:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
 
-    fetchProjects();
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (skills.length > 0) {
-      const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, 3000); // Change every 3 seconds
-
-      return () => clearInterval(interval);
-    }
-  }, [skills.length]);
-
-  useEffect(() => {
-    if (carouselRef.current && skills.length > 0) {
-      const itemWidth = carouselRef.current.scrollWidth / (skills.length * 2);
-      const totalItems = skills.length * 2;
-      const offset = (currentIndex % totalItems) * itemWidth;
-      carouselRef.current.style.transition = "transform 300ms ease-in-out";
-      carouselRef.current.style.transform = `translateX(-${offset}px)`;
-
-      if (currentIndex % skills.length === 0) {
-        setTimeout(() => {
-          carouselRef.current!.style.transition = "none";
-          carouselRef.current!.style.transform = `translateX(-${
-            (currentIndex % skills.length) * itemWidth
-          }px)`;
-        }, 300);
-      }
-    }
-  }, [currentIndex, skills.length]);
-
   return (
-    <section className="bg-[#0B0C10] text-[#66FCF1] px-6 md:px-12 lg:px-36 overflow-hidden">
-      <div className="relative flex items-center w-full overflow-hidden mt-5">
-        {/* Carousel Container */}
-        <Carousel className="w-full max-w-6xl mx-auto">
-          <CarouselContent
-            ref={carouselRef}
-            className="flex gap-4 md:gap-6 lg:gap-8 px-4 transition-transform duration-300 ease-in-out"
+    <div ref={skillsRef} className="w-full mt-16">
+      <h3 className="heading text-3xl md:text-4xl font-bold mb-12">
+        Skills & Technologies
+      </h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+        {skills.map((skill, index) => (
+          <div
+            key={skill.title}
+            className={`skill-card group relative bg-[#1F2833] rounded-xl p-4 hover:bg-[#45A29E]/20 transition-all duration-500 ease-out hover:scale-110 hover:shadow-lg hover:shadow-[#66FCF1]/30 border border-gray-700 hover:border-[#66FCF1]/50 cursor-pointer transform ${
+              isVisible
+                ? "translate-y-0 opacity-100 rotate-0 skill-enter"
+                : "translate-y-8 opacity-0 rotate-3"
+            }`}
+            style={{
+              transitionDelay: `${index * 50}ms`,
+              animationDelay: `${index * 50}ms`,
+            }}
           >
-            {[...skills, ...skills].map((skill, index) => (
-              <CarouselItem
-                key={`${skill.title}-${index}`}
-                className={`flex-none w-24 sm:w-28 md:w-36 lg:w-48`}
+            {/* Skill Icon */}
+            <div className="flex flex-col items-center justify-center space-y-3">
+              <div className="skill-icon relative w-12 h-12 md:w-16 md:h-16 group-hover:scale-110 transition-transform duration-300">
+                <Image
+                  src={`/images/${skill.img}`}
+                  alt={skill.title}
+                  fill
+                  className="object-contain filter group-hover:brightness-110 transition-all duration-300"
+                />
+              </div>
+
+              {/* Skill Title */}
+              <h4
+                className={`text-sm md:text-base font-semibold text-center text-[#66FCF1] group-hover:text-white transition-colors duration-300 ${poppins.className}`}
               >
-                <div className="flex flex-col items-center p-4 hover:scale-105 transition-transform">
-                  <Image
-                    src={`/images/${skill.img}`}
-                    alt={skill.title}
-                    width={64}
-                    height={64}
-                    className="mb-4"
-                  />
-                  <p className="text-sm md:text-lg font-semibold">
-                    {skill.title}
-                  </p>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                {skill.title}
+              </h4>
+            </div>
+
+            {/* Hover Glow Effect */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#66FCF1]/10 to-[#45A29E]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+
+            {/* Floating Animation */}
+            <div className="absolute inset-0 rounded-xl bg-[#66FCF1]/5 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse -z-20"></div>
+
+            {/* Floating Particles */}
+            <div className="floating-particle absolute top-2 right-2 w-1 h-1 bg-[#66FCF1] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div
+              className="floating-particle absolute bottom-2 left-2 w-1 h-1 bg-[#45A29E] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+              style={{ animationDelay: "1s" }}
+            ></div>
+          </div>
+        ))}
       </div>
-    </section>
+
+      {/* Decorative Elements */}
+      <div className="flex justify-center mt-12">
+        <div className="flex space-x-2">
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className={`w-2 h-2 rounded-full bg-[#66FCF1] transition-all duration-1000 ${
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+              }`}
+              style={{ transitionDelay: `${skills.length * 50 + i * 200}ms` }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
