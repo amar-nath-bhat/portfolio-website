@@ -42,6 +42,7 @@ interface Project {
   imageUrl: string;
   liveUrl?: string;
   sourceCodeUrl?: string;
+  tags?: string[];
   createdAt?: string;
   updatedAt?: string;
 }
@@ -345,6 +346,19 @@ export default function PortfolioDashboard() {
                           </Badge>
                         )}
                       </div>
+                      {project.tags && (
+                        <div className="flex gap-1 mt-2 flex-wrap">
+                          {project.tags.map((tag, idx) => (
+                            <Badge
+                              key={idx}
+                              variant="outline"
+                              className="text-xs"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
                     </CardContent>
                     <CardFooter className="flex gap-2">
                       <Button
@@ -493,6 +507,21 @@ export default function PortfolioDashboard() {
                       }
                     />
                   </div>
+                  <div className="grid gap-2">
+                    <Label htmlFor="tags">Tags (comma-separated)</Label>
+                    <Input
+                      id="tags"
+                      value={formData.tags?.join(", ") || ""}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          tags: e.target.value
+                            .split(",")
+                            .map((tag) => tag.trim()),
+                        })
+                      }
+                    />
+                  </div>
                 </>
               ) : (
                 <div className="grid gap-2">
@@ -585,6 +614,22 @@ export default function PortfolioDashboard() {
                         setFormData({
                           ...formData,
                           sourceCodeUrl: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+
+                  <div className="grid gap-2">
+                    <Label htmlFor="edit-tags">Tags (comma-separated)</Label>
+                    <Input
+                      id="edit-tags"
+                      value={formData.tags?.join(", ") || ""}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          tags: e.target.value
+                            .split(",")
+                            .map((tag) => tag.trim()),
                         })
                       }
                     />

@@ -17,7 +17,7 @@ interface Project {
   imageUrl: string;
   liveUrl: string;
   sourceCodeUrl: string;
-  technologies?: string[];
+  tags?: string[];
 }
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
@@ -48,9 +48,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           </p>
 
           {/* Technology Tags */}
-          {project.technologies && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.technologies.slice(0, 3).map((tech, index) => (
+          {project.tags && (
+            <div className="flex flex-wrap gap-2 mb-4 items-center">
+              {project.tags.slice(0, 4).map((tech, index) => (
                 <span
                   key={index}
                   className="px-2 py-1 bg-[#66FCF1]/10 text-[#66FCF1] text-xs rounded-full border border-[#66FCF1]/30 hover:bg-[#66FCF1]/20 transition-colors duration-300"
@@ -58,11 +58,11 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                   {tech}
                 </span>
               ))}
-              {project.technologies.length > 3 && (
+              {/* {project.tags.length > 3 && (
                 <span className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded-full">
-                  +{project.technologies.length - 3} more
+                  +{project.tags.length - 3} more
                 </span>
-              )}
+              )} */}
             </div>
           )}
         </div>

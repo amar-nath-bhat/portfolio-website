@@ -19,6 +19,10 @@ const ProjectSchema = new Schema({
   sourceCodeUrl: {
     type: String,
   },
+  tags:{
+    type: [String],
+    required: true,
+  }
 }, {
   timestamps: true,
 });
