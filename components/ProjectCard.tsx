@@ -23,7 +23,7 @@ interface Project {
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <div
-      className={`max-w-sm w-full min-h-[550px] rounded-xl shadow-lg shadow-gray-800 overflow-hidden bg-gradient-to-br from-[#0B0C10] to-[#1F2833] hover:scale-105 transition-all duration-500 ease-in-out hover:shadow-xl hover:shadow-[#66FCF1]/30 mx-auto md:mx-0 border border-gray-700 hover:border-[#66FCF1]/50 flex flex-col ${poppins.className}`}
+      className={`glass-panel max-w-sm w-full min-h-[550px] rounded-xl shadow-lg shadow-[#66FCF1]/10 overflow-hidden hover:scale-105 transition-all duration-500 ease-in-out hover:shadow-xl hover:shadow-[#66FCF1]/30 mx-auto md:mx-0 border border-white/5 hover:border-[#66FCF1]/50 flex flex-col ${poppins.className}`}
     >
       {/* Project Image */}
       <div className="relative overflow-hidden">
@@ -69,7 +69,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
         {/* Buttons pinned to bottom */}
         <div className="flex gap-3 mt-auto pt-4">
-          <Button className="flex-1 px-4 py-2 bg-[#66FCF1] text-black rounded-lg hover:bg-[#45A29E] hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#66FCF1]/30 group">
+          <Button className="flex-1 px-4 py-2 retro-btn rounded-lg group">
             <Link
               href={project.liveUrl}
               target="_blank"
@@ -83,7 +83,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               Live Demo
             </Link>
           </Button>
-          <Button className="flex-1 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all duration-300 hover:shadow-lg group">
+          <Button className="flex-1 px-4 py-2 retro-btn rounded-lg group">
             <Link
               href={project.sourceCodeUrl}
               target="_blank"

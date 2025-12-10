@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
   );
 
   return (
-    <section className="flex flex-col-reverse lg:flex-row items-center justify-center px-6 md:px-12 lg:px-24 xl:px-36 overflow-hidden sm:min-h-[85vh]">
+    <section className="flex flex-col-reverse lg:flex-row items-center justify-center px-6 md:px-12 lg:px-24 xl:px-36 sm:min-h-[85vh] pt-32 md:pt-40">
       {/* Text Section */}
       <div className="text-start flex flex-col w-auto top-0 mt-10 lg:mt-0 animate-fade-in-up">
         <span className="w-full heading text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -56,10 +56,10 @@ const Hero: React.FC = () => {
           <span ref={typedRef}></span>
         </h2>
         <div className="flex gap-6 sm:gap-10 mt-8 sm:mt-16 text-lg sm:text-xl font-bold justify-start">
-          <Button className="hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-[#45A29E]/50 bg-[#66FCF1] px-6 py-4 sm:px-7 sm:py-7 text-black hover:text-white rounded-full text-lg sm:text-xl">
+          <Button className="retro-btn px-6 py-4 sm:px-7 sm:py-7 rounded-full text-lg sm:text-xl">
             <Link href="#contact">Say Hi 👋</Link>
           </Button>
-          <Button className="hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-[#45A29E]/50 bg-[#66FCF1] px-6 py-4 sm:px-5 sm:py-7 text-black hover:text-white rounded-full text-lg sm:text-xl">
+          <Button className="retro-btn px-6 py-4 sm:px-5 sm:py-7 rounded-full text-lg sm:text-xl">
             <Link href="#projects">Learn More</Link>
           </Button>
         </div>

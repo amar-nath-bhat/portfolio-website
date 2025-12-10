@@ -10,12 +10,12 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="px-6 md:px-12 lg:px-24 xl:px-36 py-4 md:py-8 text-[#66FCF1] sticky top-0 z-10 shadow-sm shadow-cyan-800 header">
-      <nav className="flex justify-between items-center w-full">
+    <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+      <nav className="glass-nav rounded-full px-6 py-3 flex justify-between items-center w-full max-w-5xl shadow-lg shadow-[#66FCF1]/10 border border-[#66FCF1]/20">
         {/* Logo */}
         <Link
           href="/"
-          className="glow-text font-extrabold text-2xl md:text-3xl"
+          className="glow-text font-extrabold text-xl md:text-2xl tracking-wider"
         >
           <span>Amarnath </span>
           <span className="text-white">Bhat</span>
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           onClick={toggleMobileMenu}
         >
           <svg
-            className="w-8 h-8"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -47,12 +47,12 @@ const Header: React.FC = () => {
         </button>
 
         {/* Navigation Links for larger screens */}
-        <ul className="hidden md:flex justify-end gap-6 lg:gap-10">
-          {["Home", "About", "Projects", "Contact"].map((item) => (
+        <ul className="hidden md:flex justify-end gap-8">
+          {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
             <li key={item}>
               <Link
                 href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
-                className="navbar-text glow-text font-bold text-lg lg:text-xl"
+                className="navbar-text font-medium text-sm lg:text-base uppercase tracking-widest hover:text-[#66FCF1] transition-colors duration-300"
               >
                 {item}
               </Link>
@@ -62,18 +62,20 @@ const Header: React.FC = () => {
 
         {/* Mobile navigation menu */}
         {isMobileMenuOpen && (
-          <ul className="absolute top-16 left-0 w-full header flex flex-col items-start px-6 gap-4 py-4 md:hidden">
-            {["Home", "About", "Projects", "Contact"].map((item) => (
-              <li key={item} onClick={toggleMobileMenu}>
-                <Link
-                  href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
-                  className="navbar-text glow-text font-bold text-lg"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="absolute top-16 left-0 right-0 mx-4 glass-panel rounded-2xl p-4 md:hidden animate-in slide-in-from-top-5 duration-300">
+            <ul className="flex flex-col items-center gap-4">
+              {["Home", "About", "Skills", "Projects", "Contact"].map((item) => (
+                <li key={item} onClick={toggleMobileMenu} className="w-full text-center">
+                  <Link
+                    href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+                    className="navbar-text block w-full py-2 font-bold text-lg hover:bg-[#66FCF1]/10 rounded-lg transition-all"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </nav>
     </header>

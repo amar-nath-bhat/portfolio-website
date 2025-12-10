@@ -21,8 +21,6 @@ const Skills: React.FC = () => {
         setSkills(data);
       } catch (error) {
         console.error("Error fetching skills:", error);
-      } finally {
-        setIsVisible(true);
       }
     };
     fetchSkills();
@@ -35,7 +33,7 @@ const Skills: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     if (skillsRef.current) {
@@ -54,14 +52,13 @@ const Skills: React.FC = () => {
         {skills.map((skill, index) => (
           <div
             key={skill.title}
-            className={`skill-card group relative bg-[#1F2833] rounded-xl p-4 hover:bg-[#45A29E]/20 transition-all duration-500 ease-out hover:scale-110 hover:shadow-lg hover:shadow-[#66FCF1]/30 border border-gray-700 hover:border-[#66FCF1]/50 cursor-pointer transform ${
-              isVisible
+            className={`skill-card group relative bg-[#1F2833] rounded-xl p-4 hover:bg-[#45A29E]/20 transition-all duration-300 ease-out hover:scale-110 hover:shadow-lg hover:shadow-[#66FCF1]/30 border border-gray-700 hover:border-[#66FCF1]/50 cursor-pointer transform ${isVisible
                 ? "translate-y-0 opacity-100 rotate-0 skill-enter"
                 : "translate-y-8 opacity-0 rotate-3"
-            }`}
+              }`}
             style={{
-              transitionDelay: `${index * 50}ms`,
-              animationDelay: `${index * 50}ms`,
+              transitionDelay: `${index * 10}ms`,
+              animationDelay: `${index * 10}ms`,
             }}
           >
             {/* Skill Icon */}
@@ -105,9 +102,8 @@ const Skills: React.FC = () => {
           {[...Array(3)].map((_, i) => (
             <div
               key={i}
-              className={`w-2 h-2 rounded-full bg-[#66FCF1] transition-all duration-1000 ${
-                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-              }`}
+              className={`w-2 h-2 rounded-full bg-[#66FCF1] transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                }`}
               style={{ transitionDelay: `${skills.length * 50 + i * 200}ms` }}
             />
           ))}

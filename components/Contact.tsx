@@ -1,3 +1,4 @@
+
 "use client";
 
 import type React from "react";
@@ -84,12 +85,11 @@ const Contact: React.FC = () => {
     <section
       id="contact"
       ref={contactRef}
-      className={`text-[#66FCF1] flex flex-col items-center justify-center px-10 md:px-36 overflow-hidden mb-10 min-h-[85vh] gap-5 ${poppins.className}`}
+      className={`text-[#66FCF1] flex flex-col items-center justify-center px-6 md:px-12 lg:px-24 xl:px-36 py-20 mb-10 min-h-[85vh] gap-5 ${poppins.className}`}
     >
       <div
-        className={`bg-[#030304] p-10 w-full max-w-lg rounded-3xl shadow-lg shadow-gray-800 text-xl hover:scale-105 transition-all duration-500 ease-in-out hover:shadow-[#66FCF1]/50 transform ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-        }`}
+        className={`glass-panel p-10 w-full max-w-lg rounded-3xl shadow-lg shadow-[#66FCF1]/10 text-xl hover:scale-105 transition-all duration-500 ease-in-out hover:shadow-[#66FCF1]/30 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
       >
         <h2 className="text-4xl font-bold text-center mb-8">Contact Me</h2>
 
@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
               name="name"
               required
               placeholder="Enter your name"
-              className="bg-[#1F2833] text-[#66FCF1] border-[#45A29E] focus:border-[#66FCF1] transition-colors duration-300"
+              className="bg-white/5 backdrop-blur-sm text-[#66FCF1] border-white/10 focus:border-[#66FCF1] focus:ring-1 focus:ring-[#66FCF1] transition-colors duration-300"
             />
           </div>
 
@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
               name="email"
               required
               placeholder="Enter your email"
-              className="bg-[#1F2833] text-[#66FCF1] border-[#45A29E] focus:border-[#66FCF1] transition-colors duration-300"
+              className="bg-white/5 backdrop-blur-sm text-[#66FCF1] border-white/10 focus:border-[#66FCF1] focus:ring-1 focus:ring-[#66FCF1] transition-colors duration-300"
             />
           </div>
 
@@ -134,7 +134,7 @@ const Contact: React.FC = () => {
               name="message"
               required
               placeholder="Enter your message"
-              className="bg-[#1F2833] text-[#66FCF1] border-[#45A29E] focus:border-[#66FCF1] transition-colors duration-300 min-h-[100px]"
+              className="bg-white/5 backdrop-blur-sm text-[#66FCF1] border-white/10 focus:border-[#66FCF1] focus:ring-1 focus:ring-[#66FCF1] transition-colors duration-300 min-h-[100px]"
             />
           </div>
 
@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full hover:scale-105 transition-all duration-300 ease-in-out bg-[#66FCF1] px-5 py-5 text-black hover:text-white rounded-full text-xl disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full retro-btn px-5 py-5 rounded-full text-xl disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>

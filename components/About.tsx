@@ -45,14 +45,13 @@ const About: React.FC = () => {
     <section
       id="about"
       ref={aboutRef}
-      className="px-6 md:px-12 lg:px-36 sm:min-h-[100vh] flex flex-col items-center justify-between bg-[#0B0C10] mt-10"
+      className="px-6 md:px-12 lg:px-24 xl:px-36 sm:min-h-[100vh] flex flex-col items-center justify-between mt-10"
     >
       <div className="flex flex-col md:flex-row items-center justify-center w-full">
         {/* About Me Text Section */}
         <div
-          className={`w-full md:w-1/2 mb-8 md:mb-0 transform transition-all duration-1000 ease-out ${
-            isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
-          }`}
+          className={`w-full md:w-1/2 mb-8 md:mb-0 transform transition-all duration-1000 ease-out ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+            }`}
         >
           <h2 className="heading text-3xl md:text-4xl font-bold mb-6">
             About Me
@@ -85,9 +84,8 @@ const About: React.FC = () => {
 
         {/* Spline 3D Model */}
         <div
-          className={`w-full md:w-1/2 h-[50vh] md:h-[70vh] transform transition-all duration-1000 ease-out delay-300 ${
-            isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
-          }`}
+          className={`w-full md:w-1/2 h-[50vh] md:h-[70vh] transform transition-all duration-1000 ease-out delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+            }`}
         >
           <SplineLoader
             scene={process.env.NEXT_PUBLIC_THREED_ICON || ""}
